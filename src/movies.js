@@ -2032,13 +2032,14 @@ function scoresAverage(moviesArray) {
     const onlyScores = moviesArray.map((element) => {
         return element.score
     })
-    
+
     if (onlyScores.length == 0) {
         return 0
     }
 
     const totalPoints = onlyScores.reduce((acc, element) => {
-        return acc + element
+      if (typeof element.score === 'number') {
+        return acc + element.score }
     })
     
     const averageScore = totalPoints / moviesArray.length
@@ -2049,7 +2050,11 @@ function scoresAverage(moviesArray) {
 
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
-function dramaMoviesScore(moviesArray) {}
+function dramaMoviesScore(moviesArray) {
+  const dramaMovies = moviesArray.map((element) => {
+    if (element.score)
+  })
+}
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 function orderByYear(moviesArray) {}
